@@ -6,46 +6,55 @@ import About from "./pages/About.vue";
 import Contact from "./pages/Contact.vue";
 import Login from "./pages/Login.vue";
 import Register from "./pages/Register.vue";
+import Product from "./pages/Product.vue";
 
 const routes = [
     {
         path: "/",
         component: Home,
         name: "home",
-        meta:{
-            title:'Home'
+        meta: {
+            title: "Home"
         }
     },
     {
         path: "/about",
         component: About,
         name: "about",
-        meta:{
-            title:'About'
+        meta: {
+            title: "About"
         }
     },
     {
         path: "/contact",
         component: Contact,
         name: "contact",
-        meta:{
-            title:'Contact'
+        meta: {
+            title: "Contact"
         }
     },
     {
         path: "/login",
         component: Login,
         name: "login",
-        meta:{
-            title:'Login'
+        meta: {
+            title: "Login"
         }
     },
     {
         path: "/register",
         component: Register,
         name: "register",
-        meta:{
-            title:'Register'
+        meta: {
+            title: "Register"
+        }
+    },
+    {
+        path: "/products",
+        component: Product,
+        name: "products",
+        meta: {
+            title: "Products"
         }
     }
 ];

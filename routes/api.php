@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
+Route::post('register','API\RegisterController@register');
+Route::post('login','API\LoginController@login');
+
 Route::middleware('auth:api')->group(function() {
+
     Route::get('products', function () {
         $prod_data = DB::table('products')->get();
-        dd($prod_data);
-        // return
+        // dd($prod_data);
+        return $prod_data;
     });
 
     Route::post('products', function (Request $request) {
@@ -38,7 +42,6 @@ Route::middleware('auth:api')->group(function() {
 
         return $result;
     });
-
 });
 
 

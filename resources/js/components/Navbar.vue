@@ -2,7 +2,7 @@
     <div>
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-                <a class="navbar-brand" href="#">Laravel SPA</a>
+                <a class="navbar-brand" href="#">Laravel SPAX</a>
                 <button
                     class="navbar-toggler d-lg-none"
                     type="button"
@@ -24,6 +24,11 @@
                         <li class="nav-item active">
                             <router-link class="nav-link" to="/about"
                                 >About</router-link
+                            >
+                        </li>
+                        <li class="nav-item active">
+                            <router-link class="nav-link" to="/products"
+                                >Products</router-link
                             >
                         </li>
                         <li class="nav-item active">
@@ -57,7 +62,7 @@
 <script>
 export default {
     mounted() {
-        console.log("components Mounted");
+
     }
 };
 </script>

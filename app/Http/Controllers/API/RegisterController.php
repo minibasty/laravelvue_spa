@@ -2,10 +2,40 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\API\APIBaseController as APIBaseController;
+// use App\Http\Controllers\API\APIBaseController;
 
-class RegisterController extends Controller
+// เรียกใช้งาน Model
+use App\User;
+
+use Illuminate\Support\Facades\Auth;
+use Validator;
+
+class RegisterController extends APIBaseController
 {
-    //
+    public function register(Request $request){
+        $validator = Validator::make($request->all(), [
+            'fullname' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6',
+            'c_password'=>'required|same:password',
+            'tel'=>'required',
+            'isAdmin'=>'required',
+            'status'=>'required'
+        ]);
+
+        // ถ้าข้อมูลจาก Request ไม่ถูกต้อง
+        if($validator->fails()){
+            return $this->sendError('Validation Error.', $validator->errors());
+        }
+
+        $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
+        $user = User::create($input);
+        $success['token'] = $user->createToken('MyApp')->accessToken;
+        $success['name'] = $user->fullname;
+
+        return $this->sendResponse($success, 'User register successfully');
+    }
 }

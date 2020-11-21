@@ -12,7 +12,7 @@
 let brand = ' | Laravel Vue';
 export default {
     mounted() {
-        console.log("components Mounted");
+
     },
     watch: {
         '$route'(to,from){
